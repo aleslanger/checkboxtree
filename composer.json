@@ -1,0 +1,29 @@
+{
+    "name": "aleslanger/checkboxtree",
+    "type": "library",
+    "description": "Checkbox Tree control for Nette Framework.",
+    "authors": [
+        {
+            "name": "Ales Langer",
+            "email": "ales.langer@yahoo.com"
+        }
+    ],
+    "license": "MIT",
+
+    "require": {
+        "php": ">= 5.6",
+        "nette/application": "^2.4",
+        "nette/di": "^2.4",
+        "nette/forms": "^2.4",
+        "nette/http": "^2.4",
+        "nette/utils": "^2.4"
+    },
+    
+    "autoload": {
+        "classmap": ["src/"]
+    },
+    
+    "minimum-stability": "dev",
+    "prefer-stable" : true
+    
+}
