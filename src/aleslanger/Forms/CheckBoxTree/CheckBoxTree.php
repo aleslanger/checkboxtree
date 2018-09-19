@@ -67,7 +67,7 @@ class CheckBoxTree extends Nette\Forms\Controls\MultiChoiceControl
                 if ($child) {
                     $item['child'] = $child;
                 }
-                $branch[$key] = $item;
+                $branch[$item['id']] = $item;
             }
         }
 
@@ -96,20 +96,20 @@ class CheckBoxTree extends Nette\Forms\Controls\MultiChoiceControl
 
         foreach ($items as $key => $item) {
 
-            $this->_key = $key;
+            $this->_key = $item['id'];
 
             if (isset($item['child']) AND is_array($item['child'])) {
 
                 $html->addHtml(Html::el('li')
                     ->addHtml($this->getControlPart())
-                    ->addHtml(Html::el("label", array("for" => $this->getHtmlId() . '-' . $key))->addText($item['title']))
+                    ->addHtml(Html::el("label", array("for" => $this->getHtmlId() . '-' . $this->_key))->addText($item['title']))
                     ->addHtml($this->_checkBoxTreeRender($item['child']))
                         );
             } else {
 
                 $html->addHtml(Html::el('li')
                     ->addHtml($this->getControlPart())
-                    ->addHtml(Html::el("label", array("for" => $this->getHtmlId() . '-' . $key))->addText($item['title']))
+                    ->addHtml(Html::el("label", array("for" => $this->getHtmlId() . '-' . $this->_key))->addText($item['title']))
                         );
             }
         }
@@ -144,7 +144,7 @@ class CheckBoxTree extends Nette\Forms\Controls\MultiChoiceControl
             foreach ($items as $itemKey => $item) {
                 foreach ($keys as $key) {
                     if (isset($item[$key]) OR $item[$key] === null) {
-                        $items_new[$itemKey][$key] = $item[$key];
+                        $items_new[$item['id']][$key] = $item[$key];
                     } else {
                         throw new Nette\InvalidArgumentException("Missing item '$key'.");
                     }
