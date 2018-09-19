@@ -50,6 +50,7 @@ $form->addCheckboxTree("list", "Label", $items);
 ```
 
 the input array must contain keys (id, title, parent_id), key title is label for checkbox.
+The output is an array, the individual values are id.
 
 ## License
 
